@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Visitas</title>
+    <link rel="stylesheet" href="css/styles.css"> </head>
+<body>
+    <div id="globalMessage" class="message" style="display:none;"></div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="asistencia.html">Asistencia</a>
+        <a href="visitas.html" class="active">Visitas</a>
+        <a href="base_datos.html">Hermanos</a>
+        <button id="darkModeToggle" class="btn btn-sm" style="margin-left: 20px;">Modo Oscuro</button> </nav>
+    </nav>
+
+    <div class="container">
+        <h1>Registro de Visitas de Hermanamiento</h1>
+
+        <form id="formRegistrarVisita">
+            <div class="visitas-form-container">
+            <div>
+                <label for="visitanteNombre">Hermano que visita:</label>
+                <input type="text" id="visitanteNombre" list="listaHermanosDatalist" placeholder="Escribe para buscar..." autocomplete="off">
+                <datalist id="listaHermanosDatalist">
+                    </datalist>
+                <input type="hidden" id="visitanteId"> </div>
+            <div>
+                <label for="visitadoNombre">Hermano que fue visitado:</label>
+                <input type="text" id="visitadoNombre" list="listaHermanosDatalist" placeholder="Escribe para buscar..." autocomplete="off">
+                <input type="hidden" id="visitadoId"> </div>
+                <button type="submit">LISTO</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <h2 id="tituloMesVisitas">Visitas del Mes Actual</h2>
+        <div class="table-responsive-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha de Visita</th>
+                        <th>Visitante</th>
+                        <th>Visitado</th>
+                        <th>Acciones</th> </tr>
+                </thead>
+                <tbody id="listaVisitasBody">
+                    <tr>
+                        <td colspan="4" style="text-align:center;">Cargando visitas...</td> </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script defer src="js/app.js"></script>
+</body>
+</html>

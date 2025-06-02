@@ -1,0 +1,385 @@
+/* Definición de Variables de Color Globales */
+:root {
+    --clr-background: #f4f4f8; /* Un gris muy claro, casi blanco, para el fondo general */
+    --clr-text: #333740;       /* Gris oscuro para texto principal, buena legibilidad */
+    --clr-text-muted: #6c757d; /* Gris más claro para texto secundario o etiquetas */
+    --clr-primary: #007AFF;   /* Azul de acento principal (estilo iOS) */
+    --clr-primary-hover: #005ecb; /* Azul más oscuro para hover */
+    
+    --clr-nav-background: var(--clr-primary);
+    --clr-nav-text: #ffffff;
+    --clr-nav-hover-background: rgba(255, 255, 255, 0.15); /* Blanco semitransparente para hover en nav */
+    
+    --clr-container-background: #ffffff; /* Fondo blanco para los contenedores principales */
+    --clr-container-shadow: rgba(0, 0, 0, 0.08); /* Sombra sutil para contenedores */
+    
+    --clr-h1-h2-text: var(--clr-primary); /* Títulos principales con color de acento */
+    
+    --clr-table-header-background: #f8f9fa; /* Fondo muy claro para encabezados de tabla */
+    --clr-table-header-text: var(--clr-text);
+    --clr-table-border: #dee2e6; /* Borde de tabla más sutil */
+    --clr-table-row-even-background: #fcfdff; /* Alternancia de color muy sutil */
+    --clr-table-row-hover-background: #e9ecef; /* Hover más claro */
+    
+    --clr-button-text: #ffffff;
+    --clr-button-primary-background: var(--clr-primary);
+    --clr-button-primary-hover-background: var(--clr-primary-hover);
+    --clr-button-danger-background: #dc3545;
+    --clr-button-danger-hover-background: #c82333;
+    
+    --clr-form-background: var(--clr-container-background); /* Formulario sobre el mismo fondo del container */
+    --clr-form-border: transparent; /* Sin borde visible para el contenedor del form, más integrado */
+    --clr-form-label-text: var(--clr-text-muted);
+    --clr-form-input-background: #ffffff;
+    --clr-form-input-border: #ced4da;
+    --clr-form-input-focus-border: var(--clr-primary); /* Borde de acento al enfocar input */
+    --clr-form-input-text: var(--clr-text);
+
+    --clr-btn-circle-background: #ffffff;
+    --clr-btn-circle-border: #adb5bd; /* Borde más claro para círculos */
+    --clr-btn-circle-hover-background: #e9ecef;
+    --clr-btn-circle-hover-border: #868e96;
+    --clr-btn-checked-background: #28a745; /* Verde para marcado */
+    --clr-btn-checked-border: #28a745;
+
+    --font-stack-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --border-radius-soft: 6px; /* Para inputs, botones pequeños */
+    --border-radius-medium: 8px; /* Para containers, botones más grandes */
+}
+/* Justo después de tu bloque :root */
+
+body.dark-mode {
+    --clr-background: #1c1c1e; /* Fondo oscuro iOS */
+    --clr-text: #e1e1e6;       /* Texto claro (un poco menos blanco que #f2f2f7 para confort) */
+    --clr-text-muted: #8e8e93; /* Gris claro para texto secundario en modo oscuro */
+    --clr-primary: #0A84FF;   /* Azul de acento iOS oscuro (más brillante) */
+    --clr-primary-hover: #3795ff; /* Un poco más claro para hover en oscuro */
+
+    --clr-nav-background: #2c2c2e; /* Fondo de nav más oscuro */
+    /* --clr-nav-text: #ffffff; ya está bien para texto blanco */
+    --clr-nav-hover-background: rgba(255, 255, 255, 0.1); /* Ajuste sutil si es necesario */
+
+    --clr-container-background: #2c2c2e; /* Fondo de container igual que nav o un poco diferente */
+    --clr-container-shadow: rgba(0, 0, 0, 0.3); /* Sombra un poco más perceptible en oscuro */
+
+    --clr-h1-h2-text: var(--clr-primary); /* Títulos con el azul de acento oscuro */
+
+    --clr-table-header-background: #3a3a3c;
+    /* --clr-table-header-text: var(--clr-text); ya hereda el texto claro */
+    --clr-table-border: #48484a; /* Borde de tabla más oscuro */
+    --clr-table-row-even-background: #272729; 
+    --clr-table-row-hover-background: #38383b;
+
+    /* --clr-button-text: #ffffff; ya está bien */
+    /* --clr-button-primary-background: var(--clr-primary); ya usa el primario del modo oscuro */
+    --clr-button-primary-hover-background: var(--clr-primary-hover);
+    --clr-button-danger-background: #ff453a; /* Rojo de iOS oscuro */
+    --clr-button-danger-hover-background: #ff6b62;
+
+    --clr-form-background: var(--clr-container-background);
+    /* --clr-form-border: transparent; */
+    --clr-form-label-text: var(--clr-text-muted);
+    --clr-form-input-background: #3a3a3c; /* Fondo de input más oscuro */
+    --clr-form-input-border: #545458;
+    --clr-form-input-focus-border: var(--clr-primary);
+    --clr-form-input-text: var(--clr-text); /* Texto claro para inputs */
+
+    --clr-btn-circle-background: #3a3a3c;
+    --clr-btn-circle-border: #545458;
+    --clr-btn-circle-hover-background: #48484a;
+    --clr-btn-circle-hover-border: #6c757d;
+    /* --clr-btn-checked-background: #30d158;  Verde iOS oscuro */
+    /* --clr-btn-checked-border: #30d158; */
+}
+/* Estilos Base del Body */
+body {
+    font-family: var(--font-stack-system);
+    margin: 0;
+    padding: 0;
+    background-color: var(--clr-background);
+    color: var(--clr-text);
+    line-height: 1.6;
+    font-size: 16px; /* Tamaño base de fuente */
+}
+
+/* Navegación */
+nav {
+    background-color: var(--clr-nav-background);
+    color: var(--clr-nav-text);
+    padding: 12px 20px; /* Un poco menos de padding vertical */
+    box-shadow: 0 1px 2px var(--clr-container-shadow); /* Sombra más sutil */
+    text-align: center;
+    margin-bottom: 25px; /* Espacio después de la nav */
+}
+
+nav a {
+    color: var(--clr-nav-text);
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 500; /* Peso medio, ni muy grueso ni muy delgado */
+    font-size: 0.95em; 
+    padding: 8px 15px;
+    border-radius: var(--border-radius-soft);
+    transition: background-color 0.2s ease-in-out;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--clr-nav-hover-background);
+}
+
+/* Contenedor Principal */
+.container {
+    padding: 25px;
+    max-width: 1140px; /* Ancho común para containers */
+    margin: 0 auto 30px auto; /* 0 arriba, auto a los lados, 30px abajo */
+    background-color: var(--clr-container-background);
+    box-shadow: 0 2px 8px var(--clr-container-shadow);
+    border-radius: var(--border-radius-medium);
+}
+
+/* Encabezados */
+h1, h2 {
+    color: var(--clr-h1-h2-text);
+    text-align: center;
+    margin-top: 0; /* Quitar margen superior si está dentro de .container */
+    margin-bottom: 25px;
+    font-weight: 600; /* Un poco más de peso para títulos */
+}
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.5em; margin-top:30px; }
+
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+}
+
+th, td {
+    border: 1px solid var(--clr-table-border);
+    padding: 12px 15px; /* Más padding para celdas más aireadas */
+    text-align: left;
+    vertical-align: middle; /* Mejor alineación vertical */
+}
+
+th {
+    background-color: var(--clr-table-header-background);
+    color: var(--clr-table-header-text);
+    text-align: center;
+    font-weight: 600; /* Encabezados de tabla un poco más gruesos */
+}
+
+tr:nth-child(even) {
+    background-color: var(--clr-table-row-even-background);
+}
+
+tr:hover {
+    background-color: var(--clr-table-row-hover-background);
+}
+
+.table-responsive-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Círculos de Asistencia */
+.btn-circle {
+    width: 26px; /* Un poco más grandes */
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid var(--clr-btn-circle-border); /* Borde un poco más grueso */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-btn-circle-background);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    vertical-align: middle;
+}
+
+.btn-circle:hover {
+    border-color: var(--clr-btn-circle-hover-border);
+    background-color: var(--clr-btn-circle-hover-background);
+}
+
+.btn-checked {
+    background-color: var(--clr-btn-checked-background);
+    border-color: var(--clr-btn-checked-border);
+    color: var(--clr-nav-text); 
+}
+
+.btn-checked::before {
+    content: '✔';
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Formularios */
+form {
+    margin-bottom: 30px; /* Más espacio después del form */
+    padding: 0; /* Quitamos padding aquí, se lo daremos a .form-section si es necesario */
+    background-color: transparent; /* Hacemos el form transparente */
+    border-radius: 0; /* Sin redondez ni borde para el form en sí */
+    border: none;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px; /* Menos espacio debajo del label */
+    font-weight: 500;
+    color: var(--clr-form-label-text);
+    font-size: 0.9em;
+}
+
+form select, 
+form input[type="text"], 
+form input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px; /* Más espacio entre campos */
+    border: 1px solid var(--clr-form-input-border);
+    border-radius: var(--border-radius-soft);
+    box-sizing: border-box;
+    font-size: 0.95em;
+    font-family: var(--font-stack-system); /* Heredar fuente */
+    background-color: var(--clr-form-input-background);
+    color: var(--clr-form-input-text);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+form select:focus, 
+form input[type="text"]:focus, 
+form input[type="date"]:focus {
+    outline: none;
+    border-color: var(--clr-form-input-focus-border);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra de foco tipo Bootstrap/iOS */
+}
+
+/* Botones Generales y de Formulario */
+.btn, 
+form button[type="submit"] {
+    padding: 10px 20px; /* Padding unificado */
+    font-size: 0.95em;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none; 
+    border-radius: var(--border-radius-soft);
+    color: var(--clr-button-text);
+    background-color: var(--clr-button-primary-background);
+    transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    display: inline-block; /* Para que margin-top funcione si es necesario */
+}
+
+.btn:hover, 
+form button[type="submit"]:hover {
+    background-color: var(--clr-button-primary-hover-background);
+    opacity: 0.95; /* Ligera opacidad en hover */
+}
+
+.btn-danger { /* Para el botón de borrar visitas */
+    background-color: var(--clr-button-danger-background);
+}
+
+.btn-danger:hover {
+    background-color: var(--clr-button-danger-hover-background);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.85em;
+    border-radius: var(--border-radius-soft);
+}
+
+/* Mensajes Globales */
+.message {
+    padding: 12px 15px;
+    margin: 0 20px 20px 20px; /* Margen para que no pegue a los bordes si está al ppio del body */
+    border-radius: var(--border-radius-soft);
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+}
+.message.success {
+    background-color: #d1e7dd; /* Verde pastel */
+    color: #0f5132;
+    border-color: #badbcc;
+}
+.message.error {
+    background-color: #f8d7da; /* Rojo pastel */
+    color: #842029;
+    border-color: #f5c2c7;
+}
+.message.info { /* Por si quieres mensajes informativos */
+    background-color: #cff4fc; /* Azul pastel */
+    color: #055160;
+    border-color: #b6effb;
+}
+
+
+/* Estilos específicos para la página de visitas (buscador) */
+.visitas-form-container {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que se envuelva en pantallas pequeñas */
+    gap: 15px; /* Espacio entre elementos */
+    align-items: flex-end;
+    margin-bottom: 30px;
+    padding: 20px; /* Añadimos padding aquí ya que se lo quitamos al form */
+    background-color: var(--clr-form-background); /* Fondo para la sección del form */
+    border: 1px solid var(--clr-form-border);
+    border-radius: var(--border-radius-medium);
+}
+
+.visitas-form-container > div { /* Contenedor de label + input */
+    flex-grow: 1;
+    min-width: 200px; /* Ancho mínimo para que no se aplasten mucho */
+}
+
+.visitas-form-container button {
+    flex-shrink: 0;
+    margin-bottom: 18px; /* Alineado con el margin-bottom de los inputs */
+    /* height: auto; Ya no es necesario fijar altura si padding es consistente */
+}
+
+/* IDs específicos para anchos de columna (estos se pueden mantener) */
+#listaVisitas th:nth-child(1), #listaVisitas td:nth-child(1) { width: 25%; } /* Fecha */
+#listaVisitas th:nth-child(2), #listaVisitas td:nth-child(2) { width: 30%; } /* Visitante */
+#listaVisitas th:nth-child(3), #listaVisitas td:nth-child(3) { width: 30%; } /* Visitado */
+#listaVisitas th:nth-child(4), #listaVisitas td:nth-child(4) { width: 15%; text-align: center;} /* Acciones */
+
+#tablaHermanos th:nth-child(1) { width: 10%; text-align: right; } /* ID */
+#tablaHermanos th:nth-child(2) { width: 50%; } /* Nombre */
+#tablaHermanos th:nth-child(3) { width: 15%; text-align: center; } /* Sexo */
+#tablaHermanos th:nth-child(4) { width: 25%; } /* Otros */
+
+
+/* Diseño Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    body { font-size: 15px; } /* Ajustar tamaño base en móviles */
+    
+    nav { padding: 10px; margin-bottom: 15px;}
+    nav a { display: block; margin: 8px 0; }
+    
+    .container { padding: 15px; margin-left: 10px; margin-right: 10px; }
+    h1 { font-size: 1.6em; }
+    h2 { font-size: 1.3em; }
+
+    .visitas-form-container {
+        flex-direction: column;
+        align-items: stretch; /* Inputs y botón ocuparán todo el ancho */
+        padding: 15px;
+    }
+    .visitas-form-container button {
+        width: 100%;
+        margin-bottom: 0; /* Sin margen si es el último */
+    }
+    form input[type="text"], form select {
+        margin-bottom:15px; /* Consistencia en el margen inferior */
+    }
+    /* Hacer tablas más usables en móviles */
+    th, td { padding: 8px; }
+}
