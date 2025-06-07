@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:5000/api'; // URL base de tu API Flask
+const API_URL = '/api'; // URL base de tu API Flask
 
 const nombresMeses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 const diasSemana = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
